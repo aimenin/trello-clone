@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Accordion } from '@/components/ui/accordion';
+import { ROUTES } from '@/constants';
 
 interface SidebarProps {
   storageKey?: string;
@@ -53,5 +54,31 @@ export const Sidebar = ({ storageKey = 't-sidebar-state' }: SidebarProps) => {
     );
   }
 
-  return <aside>Sidebar!</aside>;
+  return (
+    <>
+      <aside className="font-medium text-xs flex items-center mb-1">
+        <span className="pl-4">Workspaces</span>
+        <Button
+          asChild
+          type="button"
+          size="icon"
+          variant="ghost"
+          className="ml-auto"
+        >
+          <Link href={ROUTES.SELECT_ORG}>
+            <Plus className="h-4 w-4" />
+          </Link>
+        </Button>
+      </aside>
+      <Accordion
+        type="multiple"
+        defaultValue={defaultAccordionValue}
+        className="space-y-2"
+      >
+        {userMemberships.data.map(({ organization }) => (
+          <p key={organization.id}>{organization.id}</p>
+        ))}
+      </Accordion>
+    </>
+  );
 };
