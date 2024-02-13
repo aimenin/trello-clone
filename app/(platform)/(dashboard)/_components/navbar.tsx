@@ -20,10 +20,11 @@ export const Navbar = () => {
         </Button>
         <Button
           size="sm"
-          className="rounded-sm block md:hidden"
+          className="rounded-sm block md:hidden position-relative"
           variant="primary"
         >
           <Plus className="h-4 w-4" />
+          <span className="visually-hidden">add new team</span>
         </Button>
       </nav>
       <div className="ml-auto flex items-center gap-x-2">
