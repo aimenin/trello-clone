@@ -4,9 +4,12 @@ import { OrganizationSwitcher, UserButton } from '@clerk/nextjs';
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
 
+import { MobileSidebar } from './mobile-sidebar';
+
 export const Navbar = () => {
   return (
     <header className="fixed z-50 top-0 px-4 w-full h-14 border-b shadow-sm bg-white flex items-center">
+      <MobileSidebar />
       <nav className="flex items-center gap-x-4">
         <div className="hiddew md:flex">
           <Logo />
@@ -20,10 +23,11 @@ export const Navbar = () => {
         </Button>
         <Button
           size="sm"
-          className="rounded-sm block md:hidden"
+          className="rounded-sm block md:hidden relative"
           variant="primary"
         >
           <Plus className="h-4 w-4" />
+          <span className="visually-hidden">add new team</span>
         </Button>
       </nav>
       <div className="ml-auto flex items-center gap-x-2">
