@@ -1,21 +1,10 @@
-import { db } from '@/lib/db';
+import { createBoard } from '@/actions/create-board';
+import { Button } from '@/components/ui/button';
 
 const OrganizationPage = () => {
-  async function create(formData: FormData) {
-    'use server';
-
-    const title = formData.get('title') as string;
-
-    await db.board.create({
-      data: {
-        title,
-      },
-    });
-  }
-
   return (
     <div>
-      <form action={create}>
+      <form action={createBoard}>
         <input
           id="title"
           name="title"
@@ -23,6 +12,7 @@ const OrganizationPage = () => {
           placeholder="Enter a board title"
           className="border-black border p-1"
         />
+        <Button type="submit">Submit</Button>
       </form>
     </div>
   );
