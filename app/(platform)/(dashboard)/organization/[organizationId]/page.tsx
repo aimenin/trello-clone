@@ -1,9 +1,12 @@
 import { createBoard } from '@/actions/create-board';
 import { Button } from '@/components/ui/button';
+import { db } from '@/lib/db';
 
-const OrganizationPage = () => {
+const OrganizationPage = async () => {
+  const boards = await db.board.findMany({});
+
   return (
-    <div>
+    <div className="flex flex-col flex-y-4">
       <form action={createBoard}>
         <input
           id="title"
@@ -14,6 +17,11 @@ const OrganizationPage = () => {
         />
         <Button type="submit">Submit</Button>
       </form>
+      <div className="space-y-2">
+        {boards.map((board) => (
+          <div key={board.id}>Board title: {board.title}</div>
+        ))}
+      </div>
     </div>
   );
 };
