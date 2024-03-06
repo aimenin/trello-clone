@@ -11,7 +11,7 @@ import { Button, ButtonProps } from '@/components/ui/button';
  * @param children - children of the button
  * @param disabled - if the button is disabled
  * @param className - class name of the button
- * @returns
+ * @returns React.ReactElement
  */
 export const FormSubmit = ({
   variant,
