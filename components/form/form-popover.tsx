@@ -1,10 +1,14 @@
 'use client';
 
+import { X } from 'lucide-react';
+
 import {
   Popover,
+  PopoverClose,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import { Button } from '@/components/ui/button';
 import { useAction } from '@/hooks/use-action';
 import { createBoard } from '@/actions/create-board';
 
@@ -43,6 +47,14 @@ export const FormPopover = ({
         <div className="text-sm font-medium text-center text-neutral-600 pb-4">
           Create Board
         </div>
+        <PopoverClose asChild>
+          <Button
+            className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600"
+            variant="ghost"
+          >
+            <X className="h-4 w-4" />
+          </Button>
+        </PopoverClose>
       </PopoverContent>
     </Popover>
   );
