@@ -15,6 +15,7 @@ import { createBoard } from '@/actions/create-board';
 
 import { FormInput } from './form-input';
 import { FormSubmit } from './form-submit';
+import { FormPicker } from './form-picker';
 
 interface FormPopoverProps {
   children: React.ReactNode;
@@ -73,6 +74,7 @@ export const FormPopover = ({
         </PopoverClose>
         <form className="space-y-4" action={handleSumbit}>
           <div className="space-y-4">
+            <FormPicker id="image" errors={fieldErrors} />
             <FormInput
               id="title"
               label="Board title"
