@@ -1,6 +1,7 @@
 'use client';
 
 import { X } from 'lucide-react';
+import { toast } from 'sonner';
 
 import {
   Popover,
@@ -36,11 +37,11 @@ export const FormPopover = ({
   sideOffset = 0,
 }: FormPopoverProps) => {
   const { execute, fieldErrors } = useAction(createBoard, {
-    onSuccess: (data) => {
-      console.log({ data });
+    onSuccess: () => {
+      toast.success('Board created');
     },
     onError: (error) => {
-      console.log({ error });
+      toast.error(error);
     },
   });
 
